@@ -1,0 +1,13 @@
+- name: Firewalld Checker
+  hosts: all
+  tasks:
+  - name: Ensure 80 is rejected
+    firewalld:
+      port: 80/tcp
+      permanent: yes
+      state: disabled
+  - name: Ensure 443 is allowed
+    firewalld:
+      port: 443/tcp
+      permanent: yes
+      state: enabled
