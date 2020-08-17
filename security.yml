@@ -16,6 +16,6 @@
     become: yes
     register: fourfourthree
   - name: reload service firewalld
-    command: firewall-cmd --reload
+    command: sudo firewall-cmd --reload
     when: fourfourthree.changed or eighty.changed
 
