@@ -6,8 +6,10 @@
       port: 80/tcp
       permanent: yes
       state: disabled
+    become: yes
   - name: Ensure 443 is allowed
     firewalld:
       port: 443/tcp
       permanent: yes
       state: enabled
+    become: yes
