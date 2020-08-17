@@ -7,13 +7,17 @@
       permanent: yes
       state: disabled
     become: yes
+    register: eighty
   - name: Ensure 443 is allowed
     firewalld:
       port: 443/tcp
       permanent: yes
       state: enabled
     become: yes
+    register: fourfourthree
   - name: reload service firewalld
     systemd:
       name: firewalld
       state: reloaded
+    when: fourfourthree.changed || eighty.changed
+
