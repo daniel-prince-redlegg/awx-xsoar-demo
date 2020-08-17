@@ -16,8 +16,6 @@
     become: yes
     register: fourfourthree
   - name: reload service firewalld
-    systemd:
-      name: firewalld
-      state: reloaded
+    command: firewall-cmd --reload
     when: fourfourthree.changed or eighty.changed
 
